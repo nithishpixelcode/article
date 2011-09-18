@@ -1,0 +1,2 @@
+
+from article.settings import *
