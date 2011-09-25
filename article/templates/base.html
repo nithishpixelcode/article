@@ -57,17 +57,17 @@ function clearText(field)
 
 				<!-- Login Form -->
 
-								<form class="clearfix" action="#" method="post">
+			<form class="clearfix" action="{% url login %}" method="post">{% csrf_token %}
 
 					<h1>Member Login</h1>
 
-					<label class="grey" for="log">Username:</label>
+					<label class="grey" for="username">Username:</label>
 
-					<input class="field" type="text" name="log" id="log" value="" size="23" />
+					<input class="field" type="text" name="username" id="log" value="" size="23" />
 
-					<label class="grey" for="pwd">Password:</label>
+					<label class="grey" for="password">Password:</label>
 
-					<input class="field" type="password" name="pwd" id="pwd" size="23" />
+					<input class="field" type="password" name="password" id="pwd" size="23" />
 
 	            	<label><input name="rememberme" id="rememberme" type="checkbox" checked="checked" value="forever" /> &nbsp;Remember me</label>
 
@@ -394,7 +394,7 @@ function clearText(field)
 
 			<li class="left">&nbsp;</li>
 
-			<li>Hello Guest!</li>
+			<li>{% if user.is_anonymous %} Hello Guest! {% else %} {{ user }} {% endif %}</li>
 
 			<li class="sep">|</li>
 

@@ -4,18 +4,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns	
 
-# Uncomment the next two lines to enable the admin:
-
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^{{ project_name }}/', include('{{ project_name }}.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
+    #authentication
+    url(r'^login/$', 'article.views.login', name='login'),
+    
     (r'^admin/', include(admin.site.urls)),
     url(r'^$', 'article.views.index', name='index'),
 )
