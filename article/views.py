@@ -7,6 +7,8 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib import auth
+
+
 def index(request):
     #nav = Navigation.objects.all()
     #news=News.objects.all()
@@ -22,4 +24,13 @@ def login(request):
     if user is not None:
         if user.is_active:
             auth.login(request, user)
+            if not request.POST.get('remember_me', None):
+                request.session.set_expiry(0)
             return HttpResponseRedirect(reverse('index'))
+
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))
+#def register(request):
+    

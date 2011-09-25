@@ -10,5 +10,3 @@ synthasite/custom_settings.py
 django.fcgi
 admin_media
 .htaccess
-
-Thumbs.db

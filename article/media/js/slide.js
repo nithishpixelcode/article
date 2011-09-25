@@ -2,7 +2,9 @@ $(document).ready(function() {
 	
 	// Expand Panel
 	$("#open").click(function(){
-		$("div#panel").slideDown("slow");
+		if ($(this).attr('status') != "loggedin"){
+			$("div#panel").slideDown("slow");
+		}
 	
 	});	
 	
@@ -13,7 +15,9 @@ $(document).ready(function() {
 	
 	// Switch buttons from "Log In | Register" to "Close Panel" on click
 	$("#toggle a").click(function () {
-		$("#toggle a").toggle();
+		if ($(this).attr('status') != "loggedin"){
+			$("#toggle a").toggle();
+		}
 	});		
 		
 });
