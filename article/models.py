@@ -16,11 +16,11 @@ class Country(models.Model):
     Change ``db_table`` if this cause conflicts with your database layout.
     Or comment out the line for default django behaviour.
     """
-    iso = models.CharField(max_length=2, null=True)
-    name = models.CharField(max_length=128, null=False)
-    printable_name = models.CharField(max_length=128, null=True)
-    iso3 = models.CharField(max_length=3, null=True)
-    numcode = models.PositiveSmallIntegerField(default=1, null=True)
+    iso = models.CharField(max_length=2, null=True, default='IN')
+    name = models.CharField(max_length=128, null=False, default='India')
+    printable_name = models.CharField(max_length=128, null=True, default='India')
+    iso3 = models.CharField(max_length=3, null=True, default='IND')
+    numcode = models.PositiveSmallIntegerField(null=True, default=91 )
     
     class Meta:
         ordering = ['numcode', 'name',]
@@ -32,7 +32,7 @@ class Country(models.Model):
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User)
-    country  = models.ForeignKey(Country)
+    country  = models.ForeignKey(Country, default = 1)
     profile_pic = models.ImageField(upload_to="images/profile_pics", default="images/default_profile.png")
 
     def __unicode__(self):

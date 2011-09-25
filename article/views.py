@@ -32,5 +32,20 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
-#def register(request):
-    
+
+def register(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    email = request.POST['email']
+    print 'something'
+    print email
+    if not User.objects.filter(email=email):
+        user = User.objects.create_user(username=username, password=password, email=email)
+        user.is_staff=True
+        user.is_active=True
+        user.save()
+
+        user = authenticate(username=username, password=password)
+        auth.login(request, user)
+
+    return HttpResponseRedirect(reverse('index'))

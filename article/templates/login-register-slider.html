@@ -34,21 +34,21 @@
 
 				<!-- Register Form -->
 
-				<form action="" method="post">
+				<form action="{% url register %}" method="post">{% csrf_token %}
 
 					<h1>Not a member yet? Sign Up!</h1>				
 
-					<label class="grey" for="signup">Username:</label>
+					<label class="grey" for="username">Username:</label>
 
-					<input class="field" type="text" name="signup" id="signup" value="" size="23" />
+					<input class="field" type="text" name="username" id="signup" value="" size="23" />
 					
-					<label class="grey" for="email">Password:</label>
+					<label class="grey" for="password">Password:</label>
 
-					<input class="field" type="password" name="pwd" id="pwd" size="23" />
+					<input class="field" type="password" name="password" id="pwd" size="23" />
 
-					<label class="grey" for="email">Confirm Password:</label>
+					<label class="grey" for="cpassword">Confirm Password:</label>
 
-					<input class="field" type="password" name="cpwd" id="cpwd" size="23" />
+					<input class="field" type="password" name="cpassword" id="cpwd" size="23" />
 					
 					<label class="grey" for="email">Profile picture: (Optional)</label>
 
@@ -62,9 +62,9 @@
 				<label class="grey" for="email">E-mail:</label>
 
 					<input class="field" type="text" name="email" id="email" size="23" />	
-<form action="" method="post">
+
 <label>Country:</label>					
-<select name="">	
+<select name="country">	
 <option value=""></option>
 <option value="Afganistan">Afghanistan</option>
 <option value="Albania">Albania</option>
@@ -315,13 +315,13 @@
 </select>
 
 
-<label class="grey" for="email">Secret question: (In case you forget your password)</label>
+<label class="grey" for="question">Secret question: (In case you forget your password)</label>
 
-					<input class="field" type="text" name="email" id="email" size="23" />
+					<input class="field" type="text" name="question" id="question" size="23" />
 					
-					<label class="grey" for="email">Answer:</label>
+					<label class="grey" for="answer">Answer:</label>
 
-					<input class="field" type="text" name="email" id="email" size="23" />
+					<input class="field" type="text" name="answer" id="answer" size="23" />
 
 					<input type="submit" name="submit" value="Register" class="bt_register" />
 

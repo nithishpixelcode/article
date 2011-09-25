@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     (r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete'),
     
     #registration and authentication
-    #url(r'^register/$', 'article.views.register', name='register'),
+    url(r'^register/$', 'article.views.register', name='register'),
     url(r'^login/$', 'article.views.login', name='login'),
     url(r'^logout/$', 'article.views.logout', name='logout'),
     
